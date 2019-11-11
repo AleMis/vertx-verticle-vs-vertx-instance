@@ -18,6 +18,6 @@ Because when you create application where:
 * handlers have access to the same object to modify it,
 * you does not use Verticles, then
 
-in high probability you will have problem with concurrency. It's because each on start Verticle will have assigned an event loop thread, so when your bean will be an verticle, then it will be called from the same event loop, even if it have few consumers. This guarantee that everything what is doing by your bean will be called in one thread. Without using the Verticle mechanism, you will have problem with concurrency.
+in high probability you will have problem with concurrency. It's because on start each Verticle will have assigned an event loop thread, so when your bean will be an verticle, then it will be called from the same event loop, even if it have few consumers. This guarantee that everything what is doing by your bean will be called in one thread. Without using the Verticle mechanism, you will have problem with concurrency.
 
 To prove this word, have a look at the test "VerticleVsVertxInstanceTest" when you can find two tests which shows that when yours bean fulfill points mentioned above, verticles should be used instead of only Vertx instance. 
